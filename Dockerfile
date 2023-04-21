@@ -5,7 +5,10 @@ FROM node:14
 WORKDIR /tallergithubactions
 
 # Copy the application files to the container
-COPY package*.json ./
+COPY package*.json ./ 
 
+RUN npm install
+
+COPY . .
 # Set the default command to run when the container starts
 CMD ["echo", "Esta es una imagen"]
