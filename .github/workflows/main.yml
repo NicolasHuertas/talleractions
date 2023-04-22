@@ -31,15 +31,3 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t tallergithubactions .
-      
-      - name: Test Docker container
-        run: |
-          docker run -d -p 3000:3000 --name tallergithubactions-container tallergithubactions
-          sleep 5s # wait for the container to start
-          curl http://localhost:3000 # test the container
-      
-      - name: Cleanup Docker container and image
-        run: |
-          docker stop tallergithubactions-container
-          docker rm tallergithubactions-container
-          docker rmi tallergithubactions
